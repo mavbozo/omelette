@@ -7,6 +7,9 @@
             :distribution :repo
             :comments "Same as Clojure"}
 
+  ;; change this :java-cmd to your java 1.8 command path
+  :java-cmd "/opt/jdk/jdk1.8.0_31/bin/java"
+  
   :main omelette.main
 
   :global-vars {*warn-on-reflection* true}
@@ -30,7 +33,8 @@
                  [org.clojure/core.match "0.2.1"]
                  [ring "1.3.0"]
                  [ring/ring-anti-forgery "0.3.2"]
-                 [sablono "0.2.17"]]
+                 [sablono "0.2.17"]
+                 [shodan "0.3.0"]]
 
   :plugins [[com.keminglabs/cljx "0.4.0"]
             [lein-cljsbuild "1.0.3"]
@@ -42,7 +46,7 @@
                   {:source-paths ["src"],  :output-path "target/src",  :rules :cljs}]}
 
   :cljsbuild {:builds [{:source-paths ["src" "target/src"]
-                        :compiler {:preamble ["react/react.min.js"]
+                        :compiler {:preamble ["react/react.js"]
                                    :output-to "target/resources/public/assets/scripts/main.js"
                                    :output-dir "target/resources/public/assets/scripts"
                                    :source-map "target/resources/public/assets/scripts/main.js.map"
